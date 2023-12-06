@@ -1,0 +1,35 @@
+<!-- Assuming this is part of your Angular component's template -->
+<div>
+  <h1>People List</h1>
+</div>
+<form>
+  <p>Name: </p><input>
+  <p>Username:</p> <input>
+  <p>Phone: </p><input>
+</form>
+<br>
+<button type="button" class="btn btn-primary" (click)="addCustomer()">Add</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Username</th>
+      <th scope="col">Phone</th>
+      <th scope="col">#</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cs of customer; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ cs.name }}</td>
+      <td>{{ cs.username }}</td>
+      <td>{{ cs.phone }}</td>
+      <td>
+        <button type="button" class="btn btn-info" (click)="viewCustomerDetails(cs)">View</button>
+        <button type="button" class="btn btn-danger" (click)="deleteCustomer(i)">Delete</button>
+        <button type="button" class="btn btn-warning">Update</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
